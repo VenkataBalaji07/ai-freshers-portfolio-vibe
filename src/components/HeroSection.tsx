@@ -7,8 +7,12 @@ const HeroSection = () => {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 animate-fade-in-up">
           <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-portfolio-cyan to-portfolio-cyan-light p-1 animate-float">
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-black to-navy-dark flex items-center justify-center text-6xl font-bold text-portfolio-cyan">
-              VB
+            <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-black to-navy-dark">
+              <img 
+                src="/lovable-uploads/c9e0b8fb-d408-4917-aa3d-509979658162.png" 
+                alt="Venkata Balaji Boppudi"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
