@@ -69,7 +69,9 @@ export default {
 				'portfolio-text': '#e0e0e0',
 				'portfolio-text-secondary': '#9ca3af',
 				'portfolio-cyan': '#0ea5e9',
-				'portfolio-cyan-light': '#22d3ee'
+				'portfolio-cyan-light': '#22d3ee',
+				'navy-dark': '#0a1a3a',
+				'black': '#000000'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

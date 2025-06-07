@@ -11,7 +11,7 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-portfolio-text-secondary leading-relaxed mb-6">
-                I am a passionate fresher in the AI field, eager to contribute and grow in data science and artificial intelligence. 
+                I am a passionate fresher in the AI field from Hyderabad, India, eager to contribute and grow in data science and artificial intelligence. 
                 I am actively seeking opportunities to apply my skills and knowledge in real-world projects and make meaningful impacts 
                 in tech-driven environments.
               </p>

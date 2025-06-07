@@ -7,21 +7,21 @@ const HeroSection = () => {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 animate-fade-in-up">
           <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-portfolio-cyan to-portfolio-cyan-light p-1 animate-float">
-            <div className="w-full h-full rounded-full bg-portfolio-gray flex items-center justify-center text-6xl font-bold text-portfolio-cyan">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-black to-navy-dark flex items-center justify-center text-6xl font-bold text-portfolio-cyan">
               VB
             </div>
           </div>
         </div>
         
         <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          <h1 className="text-4xl md:text-6xl font-bold text-portfolio-text mb-4">
+          <h1 className="neon-name text-4xl md:text-6xl font-bold text-portfolio-text mb-4">
             Venkata Balaji Boppudi
           </h1>
           <h2 className="text-xl md:text-2xl text-portfolio-cyan mb-4">
             Aspiring AI Engineer | AI & Data Science Enthusiast
           </h2>
           <p className="text-lg text-portfolio-text-secondary mb-8">
-            📍 Bengaluru, India
+            📍 Hyderabad, India
           </p>
         </div>
 
