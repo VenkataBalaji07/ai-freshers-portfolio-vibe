@@ -37,24 +37,27 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900/50 via-gray-900/60 to-slate-900/50">
-      <div className="max-w-6xl mx-auto">
-        <div className="section-fade">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      {/* Golden spotlight background */}
+      <div className="absolute inset-0 bg-gradient-radial from-magic-golden/5 via-transparent to-transparent opacity-40"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="magic-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 golden-glow">
             Skills & Technologies
           </h2>
           
-          <div className="space-y-12">
+          <div className="space-y-16">
             {skillCategories.map((category, categoryIndex) => (
               <div key={category.title} className="text-center">
-                <h3 className="text-xl font-semibold text-slate-300 mb-8">
+                <h3 className="text-xl font-semibold text-magic-light-gray mb-8">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap justify-center gap-8">
                   {category.skills.map((skill, index) => (
                     <div 
                       key={skill.name}
-                      className="premium-skill-icon skill-float flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-800/60 to-slate-700/40 rounded-xl border border-slate-600/40 hover:border-cyan-400/60 backdrop-blur-sm transition-all duration-400"
+                      className="magic-skill-icon magic-float flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-400 cursor-pointer"
                       style={{ 
                         animationDelay: `${(categoryIndex * 0.5) + (index * 0.1)}s`,
                         width: '120px',
@@ -68,7 +71,7 @@ const SkillsSection = () => {
                         height={64}
                         className="mb-3 transition-all duration-400"
                       />
-                      <span className="text-sm text-slate-200 font-medium text-center">
+                      <span className="text-sm text-magic-light-gray font-medium text-center">
                         {skill.name}
                       </span>
                     </div>

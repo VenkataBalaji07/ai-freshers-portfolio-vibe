@@ -41,10 +41,13 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="section-fade">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-text mb-16">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      {/* Cyan spotlight background */}
+      <div className="absolute inset-0 bg-gradient-radial from-magic-cyan/5 via-transparent to-transparent opacity-40"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="magic-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 golden-glow">
             Featured Projects
           </h2>
           
@@ -52,7 +55,7 @@ const ProjectsSection = () => {
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="project-card bg-portfolio-gray/20 rounded-lg overflow-hidden"
+                className="magic-project-card rounded-lg overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
@@ -61,13 +64,13 @@ const ProjectsSection = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-portfolio-dark/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="absolute inset-0 bg-gradient-to-t from-magic-dark/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                     <div className="p-4">
                       <a 
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 text-white hover:text-portfolio-cyan-light transition-colors"
+                        className="inline-flex items-center space-x-2 text-magic-white hover:text-magic-cyan transition-colors"
                       >
                         <Github size={20} />
                         <span>View Code</span>
@@ -77,10 +80,10 @@ const ProjectsSection = () => {
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-portfolio-text mb-3">
+                  <h3 className="text-xl font-semibold text-magic-white mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-portfolio-text-secondary mb-4 leading-relaxed">
+                  <p className="text-magic-gray mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   
@@ -88,7 +91,7 @@ const ProjectsSection = () => {
                     {project.technologies.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1 bg-portfolio-cyan/10 text-portfolio-cyan text-xs rounded-full border border-portfolio-cyan/20"
+                        className="px-3 py-1 bg-magic-golden/10 text-magic-golden text-xs rounded-full border border-magic-golden/20"
                       >
                         {tech}
                       </span>
@@ -99,7 +102,7 @@ const ProjectsSection = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-portfolio-cyan hover:text-portfolio-cyan-light transition-colors font-medium"
+                    className="inline-flex items-center space-x-2 text-magic-cyan hover:text-magic-golden transition-colors font-medium"
                   >
                     <Github size={16} />
                     <span>View on GitHub</span>

@@ -25,7 +25,7 @@ const Index = () => {
     }, observerOptions);
 
     // Observe all sections with fade animation
-    const sections = document.querySelectorAll('.section-fade');
+    const sections = document.querySelectorAll('.magic-fade-in');
     sections.forEach((section) => observer.observe(section));
 
     return () => {
@@ -34,7 +34,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="wave-bg min-h-screen text-portfolio-text">
+    <div className="magic-background min-h-screen text-magic-white">
       <Navigation />
       <HeroSection />
       <AboutSection />

@@ -43,11 +43,11 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-portfolio-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled ? 'glass-navbar' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold text-portfolio-cyan">
+          <div className="text-xl font-bold text-magic-golden golden-glow transition-all duration-300">
             Portfolio
           </div>
           
@@ -56,8 +56,8 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`nav-link text-portfolio-text hover:text-portfolio-cyan-light ${
-                  activeSection === item.id ? 'active text-portfolio-cyan' : ''
+                className={`magic-nav-link text-magic-light-gray hover:text-magic-golden font-medium ${
+                  activeSection === item.id ? 'active text-magic-golden' : ''
                 }`}
               >
                 {item.label}
@@ -67,7 +67,7 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-portfolio-text hover:text-portfolio-cyan-light">
+            <button className="text-magic-light-gray hover:text-magic-golden transition-colors">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
