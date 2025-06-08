@@ -46,14 +46,15 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-cyber-soft-white mb-4 animated-name transition-all duration-300 hover:scale-105 cyber-float">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 premium-floating-name">
             Venkata Balaji Boppudi
           </h1>
-          <h2 className="text-xl md:text-2xl text-electric-purple mb-4 font-medium">
+          <h2 className="text-xl md:text-2xl text-cyber-electric-purple mb-4 font-medium animate-glow-pulse">
             Aspiring AI Engineer | AI & Data Science Enthusiast
           </h2>
-          <p className="text-lg text-indigo-glow mb-8">
-            📍 Hyderabad, India
+          <p className="text-lg text-cyber-indigo-glow mb-8 flex items-center justify-center gap-2">
+            <span className="text-cyber-rose-flash animate-pulse">📍</span>
+            Hyderabad, India
           </p>
         </motion.div>
 
@@ -63,7 +64,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
-          <p className="text-lg text-soft-white max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-cyber-soft-white max-w-2xl mx-auto mb-8 leading-relaxed">
             Passionate fresher in the AI field, eager to contribute and grow in data science and artificial intelligence. 
             Actively seeking opportunities to apply my skills and knowledge in real-world projects.
           </p>
@@ -80,31 +81,31 @@ const HeroSection = () => {
             href="https://github.com/VenkataBalaji07" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-4 glass-panel hover:bg-cyber-electric-purple/10 transition-all duration-500 rounded-full text-soft-white hover:text-electric-purple hover:scale-110 group"
+            className="premium-social-link"
           >
-            <Github size={24} className="transition-transform duration-300 group-hover:rotate-12" />
+            <Github size={24} />
           </a>
           <a 
             href="https://www.linkedin.com/in/venkata-balaji-boppudi-632b5b248" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-4 glass-panel hover:bg-cyber-indigo-glow/10 transition-all duration-500 rounded-full text-soft-white hover:text-indigo-glow hover:scale-110 group"
+            className="premium-social-link premium-social-linkedin"
           >
-            <Linkedin size={24} className="transition-transform duration-300 group-hover:rotate-12" />
+            <Linkedin size={24} />
           </a>
           <a 
             href="mailto:venkatabalaji00007@gmail.com"
-            className="p-4 glass-panel hover:bg-cyber-rose-flash/10 transition-all duration-500 rounded-full text-soft-white hover:text-rose-flash hover:scale-110 group"
+            className="premium-social-link premium-social-mail"
           >
-            <Mail size={24} className="transition-transform duration-300 group-hover:rotate-12" />
+            <Mail size={24} />
           </a>
           <a 
             href="https://x.com/Balaji420" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-4 glass-panel hover:bg-cyber-neon-cyan/10 transition-all duration-500 rounded-full text-soft-white hover:text-cyber-neon-cyan hover:scale-110 group"
+            className="premium-social-link premium-social-twitter"
           >
-            <Twitter size={24} className="transition-transform duration-300 group-hover:rotate-12" />
+            <Twitter size={24} />
           </a>
         </motion.div>
 
@@ -117,7 +118,7 @@ const HeroSection = () => {
           <PremiumButton
             size="lg"
             onClick={() => window.open('https://drive.google.com/file/d/1Ho5cYcYEE6GJwBw1gjBAo6oNZtu_FtV8/view?usp=sharing', '_blank')}
-            className="relative z-10 cyber-button"
+            className="relative z-10 premium-hero-button"
           >
             Download Resume
           </PremiumButton>

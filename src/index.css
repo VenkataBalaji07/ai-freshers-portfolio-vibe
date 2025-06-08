@@ -69,6 +69,7 @@
     z-index: 9999;
     mix-blend-mode: difference;
     transition: transform 0.1s ease-out;
+    transform: translate(var(--cursor-x, 0), var(--cursor-y, 0)) translate(-50%, -50%);
   }
 
   /* Reduced motion support */
@@ -105,6 +106,200 @@
       radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 70%);
     animation: gradient-shift 8s ease-in-out infinite;
     will-change: background-position;
+  }
+
+  /* Premium Floating Name Animation */
+  .premium-floating-name {
+    background: linear-gradient(45deg, #a855f7, #4f46e5, #f43f5e, #00ffe0);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: premium-float 4s ease-in-out infinite, premium-gradient-shift 6s ease-in-out infinite, premium-glow-pulse 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+  }
+
+  /* Premium Social Links */
+  .premium-social-link {
+    @apply p-4 glass-panel rounded-full transition-all duration-500 relative overflow-hidden group;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-social-link:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+    border-color: #a855f7;
+  }
+
+  .premium-social-linkedin:hover {
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+    border-color: #4f46e5;
+  }
+
+  .premium-social-mail:hover {
+    box-shadow: 0 10px 30px rgba(244, 63, 94, 0.4);
+    border-color: #f43f5e;
+  }
+
+  .premium-social-twitter:hover {
+    box-shadow: 0 10px 30px rgba(0, 255, 224, 0.4);
+    border-color: #00ffe0;
+  }
+
+  /* Premium Gradient Texts */
+  .premium-gradient-text {
+    background: linear-gradient(135deg, #a855f7, #4f46e5, #00ffe0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: premium-glow-pulse 3s ease-in-out infinite;
+  }
+
+  .premium-gradient-text-contact {
+    background: linear-gradient(135deg, #00ffe0, #a855f7, #f43f5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: premium-glow-pulse 3s ease-in-out infinite;
+  }
+
+  .premium-section-title {
+    background: linear-gradient(90deg, #4f46e5, #00ffe0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Premium Skill Tags */
+  .premium-skill-tag {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #a855f7;
+  }
+
+  .premium-skill-tag:hover {
+    transform: scale(1.05);
+    background: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    color: #ffffff;
+  }
+
+  /* Premium Education Cards */
+  .premium-education-card {
+    @apply p-6 rounded-lg transition-all duration-500 relative overflow-hidden cursor-pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+  }
+
+  .premium-education-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(79, 70, 229, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .premium-education-card:hover .premium-education-glow {
+    opacity: 1;
+  }
+
+  .premium-education-card:hover {
+    border-color: #4f46e5;
+    box-shadow: 
+      0 10px 40px rgba(79, 70, 229, 0.3),
+      inset 0 0 20px rgba(79, 70, 229, 0.1);
+  }
+
+  /* Premium Contact Cards */
+  .premium-contact-card {
+    @apply p-6 rounded-lg transition-all duration-500 relative overflow-hidden cursor-pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+  }
+
+  .premium-contact-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .premium-contact-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .premium-contact-card:hover .premium-contact-glow {
+    opacity: 0.3;
+  }
+
+  .premium-contact-card:hover .premium-contact-border {
+    opacity: 1;
+  }
+
+  .premium-contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .premium-contact-icon-wrapper {
+    @apply p-3 rounded-full relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Premium Buttons */
+  .premium-hero-button:hover {
+    box-shadow: 0 0 30px rgba(244, 63, 94, 0.6);
+    transform: scale(1.05);
+  }
+
+  .premium-resume-button {
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-resume-button:hover {
+    box-shadow: 0 0 40px rgba(244, 63, 94, 0.6);
+    transform: scale(1.05);
+  }
+
+  .premium-resume-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .premium-resume-button:hover::before {
+    left: 100%;
   }
 
   /* Glassmorphism Panels */
@@ -295,6 +490,38 @@
   /* Floating Animation */
   .cyber-float {
     animation: cyber-float 6s ease-in-out infinite;
+  }
+
+  /* New Premium Animations */
+  .animate-glow-pulse {
+    animation: premium-glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+}
+
+/* New Premium Keyframes */
+@keyframes premium-float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-8px) translateX(2px); }
+  50% { transform: translateY(-4px) translateX(-1px); }
+  75% { transform: translateY(-10px) translateX(1px); }
+}
+
+@keyframes premium-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes premium-glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+  }
+  50% { 
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.8));
   }
 }
 
