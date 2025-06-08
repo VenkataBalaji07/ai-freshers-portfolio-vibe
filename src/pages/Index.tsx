@@ -28,18 +28,8 @@ const Index = () => {
     const sections = document.querySelectorAll('.section-reveal');
     sections.forEach((section) => observer.observe(section));
 
-    // Custom cursor following
-    const updateCursor = (e: MouseEvent) => {
-      const cursor = document.body;
-      cursor.style.setProperty('--cursor-x', `${e.clientX}px`);
-      cursor.style.setProperty('--cursor-y', `${e.clientY}px`);
-    };
-
-    document.addEventListener('mousemove', updateCursor);
-
     return () => {
       sections.forEach((section) => observer.unobserve(section));
-      document.removeEventListener('mousemove', updateCursor);
     };
   }, []);
 

@@ -31,8 +31,8 @@ const HeroSection = () => {
           <div className="w-40 h-40 mx-auto mb-6 rounded-full p-1 cyber-float relative group">
             <div className="w-full h-full rounded-full overflow-hidden glass-panel border-2 border-cyber-electric-purple/40 transition-all duration-500 group-hover:border-cyber-electric-purple/80">
               <img 
-                src="/lovable-uploads/c9e0b8fb-d408-4917-aa3d-509979658162.png" 
-                alt="Profile"
+                src="/lovable-uploads/9473f8c7-b6c4-48e0-a68e-c90c5063ff64.png" 
+                alt="Venkata Balaji Boppudi - Profile"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
