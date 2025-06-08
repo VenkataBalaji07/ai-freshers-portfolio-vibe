@@ -1,28 +1,30 @@
 
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { PremiumButton } from './ui/premium-button';
 
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative">
-      {/* Golden spotlight background */}
-      <div className="absolute inset-0 bg-gradient-radial from-magic-golden/10 via-transparent to-transparent opacity-30"></div>
+      {/* Enhanced gradient background with parallax effect */}
+      <div className="absolute inset-0 bg-gradient-radial from-magic-golden/12 via-magic-cyan/6 to-transparent opacity-40"></div>
+      <div className="absolute inset-0 bg-gradient-conic from-magic-golden/8 via-transparent to-magic-cyan/8 animate-spin-slow opacity-20"></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="mb-8 magic-fade-in">
-          <div className="w-40 h-40 mx-auto mb-6 rounded-full p-1 magic-float relative">
-            <div className="w-full h-full rounded-full overflow-hidden glass-card border-2 border-magic-golden/30">
+          <div className="w-40 h-40 mx-auto mb-6 rounded-full p-1 magic-float relative group">
+            <div className="w-full h-full rounded-full overflow-hidden glass-card border-2 border-magic-golden/40 transition-all duration-500 group-hover:border-magic-golden/80">
               <img 
                 src="/lovable-uploads/c9e0b8fb-d408-4917-aa3d-509979658162.png" 
                 alt="Profile"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-magic-golden/20 to-magic-cyan/20 blur-xl -z-10"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-magic-golden/30 to-magic-cyan/30 blur-2xl -z-10 opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
         
         <div className="magic-fade-in" style={{ animationDelay: '0.2s' }}>
-          <h1 className="text-4xl md:text-6xl font-bold text-magic-white mb-4 golden-glow transition-all duration-300 hover:scale-105">
+          <h1 className="text-4xl md:text-6xl font-bold text-magic-white mb-4 golden-glow premium-heading transition-all duration-300 hover:scale-105">
             Venkata Balaji Boppudi
           </h1>
           <h2 className="text-xl md:text-2xl text-magic-light-gray mb-4 font-medium">
@@ -45,43 +47,42 @@ const HeroSection = () => {
             href="https://github.com/VenkataBalaji07" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-3 glass-card hover:bg-magic-golden/10 transition-all duration-300 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow"
+            className="p-4 glass-card hover:bg-magic-golden/10 transition-all duration-500 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow group"
           >
-            <Github size={24} />
+            <Github size={24} className="transition-transform duration-300 group-hover:rotate-12" />
           </a>
           <a 
             href="https://www.linkedin.com/in/venkata-balaji-boppudi-632b5b248" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-3 glass-card hover:bg-magic-golden/10 transition-all duration-300 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow"
+            className="p-4 glass-card hover:bg-magic-golden/10 transition-all duration-500 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow group"
           >
-            <Linkedin size={24} />
+            <Linkedin size={24} className="transition-transform duration-300 group-hover:rotate-12" />
           </a>
           <a 
             href="mailto:venkatabalaji00007@gmail.com"
-            className="p-3 glass-card hover:bg-magic-golden/10 transition-all duration-300 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow"
+            className="p-4 glass-card hover:bg-magic-golden/10 transition-all duration-500 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow group"
           >
-            <Mail size={24} />
+            <Mail size={24} className="transition-transform duration-300 group-hover:rotate-12" />
           </a>
           <a 
             href="https://x.com/Balaji420" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-3 glass-card hover:bg-magic-golden/10 transition-all duration-300 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow"
+            className="p-4 glass-card hover:bg-magic-golden/10 transition-all duration-500 rounded-full text-magic-light-gray hover:text-magic-golden hover:scale-110 cyan-glow group"
           >
-            <Twitter size={24} />
+            <Twitter size={24} className="transition-transform duration-300 group-hover:rotate-12" />
           </a>
         </div>
 
         <div className="magic-fade-in" style={{ animationDelay: '0.8s' }}>
-          <a 
-            href="https://drive.google.com/file/d/1Ho5cYcYEE6GJwBw1gjBAo6oNZtu_FtV8/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="magic-button inline-block px-8 py-3 text-magic-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative z-10"
+          <PremiumButton
+            size="lg"
+            onClick={() => window.open('https://drive.google.com/file/d/1Ho5cYcYEE6GJwBw1gjBAo6oNZtu_FtV8/view?usp=sharing', '_blank')}
+            className="relative z-10"
           >
             Download Resume
-          </a>
+          </PremiumButton>
         </div>
       </div>
     </section>

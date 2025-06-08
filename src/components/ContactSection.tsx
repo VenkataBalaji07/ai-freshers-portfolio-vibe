@@ -1,5 +1,6 @@
 
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { PremiumButton } from './ui/premium-button';
 
 const ContactSection = () => {
   const contactInfo = [
@@ -31,12 +32,13 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      {/* Cyan spotlight background */}
-      <div className="absolute inset-0 bg-gradient-radial from-magic-cyan/5 via-transparent to-transparent opacity-30"></div>
+      {/* Enhanced cyan spotlight background */}
+      <div className="absolute inset-0 bg-gradient-radial from-magic-cyan/8 via-transparent to-transparent opacity-40"></div>
+      <div className="absolute inset-0 bg-gradient-conic from-magic-cyan/6 via-transparent to-magic-golden/6 animate-spin-slow opacity-20"></div>
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="magic-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 golden-glow">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 golden-glow premium-heading">
             Get In Touch
           </h2>
           
@@ -62,17 +64,17 @@ const ContactSection = () => {
                   href={contact.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card flex items-center space-x-4 p-6 rounded-lg border border-magic-border hover:border-magic-cyan/30 transition-all duration-300 hover:bg-magic-golden/5 group"
+                  className="glass-card flex items-center space-x-4 p-6 rounded-lg border border-magic-border hover:border-magic-cyan/40 transition-all duration-500 hover:bg-magic-golden/5 group hover:scale-105"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="p-3 bg-magic-cyan/10 rounded-full group-hover:bg-magic-cyan/20 transition-colors">
-                    <IconComponent size={24} className="text-magic-cyan" />
+                  <div className="p-3 bg-magic-cyan/10 rounded-full group-hover:bg-magic-cyan/25 transition-all duration-300 group-hover:scale-110">
+                    <IconComponent size={24} className="text-magic-cyan transition-transform duration-300 group-hover:rotate-12" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-magic-white group-hover:text-magic-cyan transition-colors">
+                    <h3 className="font-semibold text-magic-white group-hover:text-magic-cyan transition-colors duration-300">
                       {contact.label}
                     </h3>
-                    <p className="text-magic-gray">
+                    <p className="text-magic-gray group-hover:text-magic-light-gray transition-colors duration-300">
                       {contact.value}
                     </p>
                   </div>
@@ -82,14 +84,12 @@ const ContactSection = () => {
           </div>
           
           <div className="text-center">
-            <a 
-              href="https://drive.google.com/file/d/1Ho5cYcYEE6GJwBw1gjBAo6oNZtu_FtV8/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="magic-button inline-block px-8 py-3 text-magic-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
+            <PremiumButton 
+              size="lg"
+              onClick={() => window.open('https://drive.google.com/file/d/1Ho5cYcYEE6GJwBw1gjBAo6oNZtu_FtV8/view?usp=sharing', '_blank')}
             >
               Download My Resume
-            </a>
+            </PremiumButton>
           </div>
         </div>
       </div>
