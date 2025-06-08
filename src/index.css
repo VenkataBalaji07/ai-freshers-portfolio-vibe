@@ -36,17 +36,6 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  /* Custom CSS properties for dynamic theming - removed gold colors */
-  :root {
-    --premium-purple: #7b2cbf;
-    --premium-purple-light: #9c4dcc;
-    --premium-purple-dark: #5a1a7a;
-    --premium-cyan: #00ffe7;
-    --premium-indigo: #4f46e5;
-    --premium-rose: #f43f5e;
-    --premium-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  }
 }
 
 @layer base {
@@ -55,14 +44,31 @@
   }
 
   body {
-    @apply bg-magic-dark text-magic-white;
+    @apply bg-cyber-deep-dark text-cyber-soft-white;
     font-family: 'Inter', 'Sora', sans-serif;
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: 'opsz' 32;
+    cursor: none;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Custom Neon Cursor */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00ffe0 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
   }
 
   /* Reduced motion support */
@@ -79,14 +85,14 @@
 }
 
 @layer components {
-  /* Enhanced Magic UI Background System - removed gold gradients */
-  .magic-background {
-    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0f0f0f 100%);
+  /* Dark Cyber Luxe Background System */
+  .cyber-background {
+    background: #0d0d0d;
     position: relative;
     overflow: hidden;
   }
 
-  .magic-background::before {
+  .cyber-background::before {
     content: '';
     position: absolute;
     top: 0;
@@ -94,55 +100,46 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 20% 20%, rgba(123, 44, 191, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(0, 255, 231, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.06) 0%, transparent 70%);
-    animation: magic-glow 25s ease-in-out infinite;
-    will-change: opacity;
+      radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 70%);
+    animation: gradient-shift 8s ease-in-out infinite;
+    will-change: background-position;
   }
 
-  .magic-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--premium-noise);
-    pointer-events: none;
-    opacity: 0.7;
+  /* Glassmorphism Panels */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* Premium Skill Cards - removed gold references */
-  .premium-skill-card {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    transform-style: preserve-3d;
-    animation-delay: var(--delay);
+  /* Animated Name Effect */
+  .animated-name {
+    background: linear-gradient(45deg, #a855f7, #4f46e5, #f43f5e);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite, neon-glow 3s ease-in-out infinite;
+    text-shadow: 0 0 15px #a855f7;
   }
 
-  .skill-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(20, 20, 20, 0.95));
-    backdrop-filter: blur(20px);
+  /* Skill Tiles with Neon Effects */
+  .cyber-skill-tile {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 0 8px rgba(255, 255, 255, 0.05),
-      0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
     overflow: hidden;
   }
 
-  .skill-inner::before {
+  .cyber-skill-tile::before {
     content: '';
     position: absolute;
     top: 0;
@@ -155,399 +152,167 @@
     transition: opacity 0.3s ease;
   }
 
-  .skill-glow-ring {
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-      var(--skill-color, #7b2cbf), 
-      transparent, 
-      var(--skill-color, #7b2cbf)
-    );
-    border-radius: 18px;
-    opacity: 0;
-    filter: blur(8px);
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    z-index: -1;
-  }
-
-  .skill-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 8px;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    filter: saturate(1) brightness(1);
-    will-change: transform, filter;
-  }
-
-  .skill-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: #d1d1d1;
-    text-align: center;
-    line-height: 1.2;
-    transition: all 0.3s ease;
-  }
-
-  /* Hover States - 3-stage animation */
-  .premium-skill-card:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
-
-  .premium-skill-card:hover .skill-inner {
-    background: linear-gradient(135deg, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+  .cyber-skill-tile:hover {
+    transform: scale(1.05);
+    border-color: #4f46e5;
     box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 0 12px rgba(255, 255, 255, 0.08),
-      0 20px 40px rgba(0, 0, 0, 0.6);
+      0 0 12px #4f46e5,
+      inset 0 0 20px rgba(79, 70, 229, 0.3);
   }
 
-  .premium-skill-card:hover .skill-inner::before {
+  .cyber-skill-tile:hover::before {
     opacity: 1;
   }
 
-  .premium-skill-card:hover .skill-glow-ring {
-    opacity: 0.8;
-    filter: blur(12px);
-    box-shadow: 0 0 20px var(--skill-color, #7b2cbf);
-  }
-
-  .premium-skill-card:hover .skill-icon {
-    transform: translateY(-2px) scale(1.1);
-    filter: saturate(1.4) brightness(1.2);
-  }
-
-  .premium-skill-card:hover .skill-label {
-    color: #ffffff;
-    text-shadow: 0 0 8px var(--skill-color, #7b2cbf);
-  }
-
-  /* Active State - Micro-interaction */
-  .premium-skill-card:active {
-    transform: translateY(-6px) scale(0.98);
-  }
-
-  .premium-skill-card:active .skill-inner {
-    animation: skill-pulse 0.6s ease-out;
-  }
-
-  /* Premium Button System - removed gold colors */
-  .premium-button {
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--premium-purple), var(--premium-purple-dark));
+  /* Project Cards */
+  .cyber-project-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 
-      0 4px 15px rgba(123, 44, 191, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    will-change: transform, box-shadow;
-  }
-
-  .premium-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--premium-noise);
-    opacity: 0.3;
-    pointer-events: none;
-  }
-
-  .button-shimmer {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-  }
-
-  .button-ripple {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.6s ease;
-  }
-
-  .premium-button:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, var(--premium-purple-light), var(--premium-purple));
-    box-shadow: 
-      0 8px 25px rgba(123, 44, 191, 0.6),
-      0 0 20px rgba(123, 44, 191, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-
-  .premium-button:hover .button-shimmer {
-    left: 100%;
-  }
-
-  .premium-button:active {
-    transform: translateY(1px);
-  }
-
-  .premium-button:active .button-ripple {
-    width: 200px;
-    height: 200px;
-  }
-
-  /* Enhanced Glass Effects */
-  .glass-card {
-    background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 0 20px rgba(255, 255, 255, 0.05);
-  }
-
-  .glass-navbar {
-    background: rgba(13, 13, 13, 0.85);
-    backdrop-filter: blur(25px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 
-      0 4px 20px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  /* Enhanced Glow Effects - replaced gold with purple/cyan */
-  .purple-glow {
-    text-shadow: 
-      0 0 10px rgba(123, 44, 191, 0.6),
-      0 0 20px rgba(123, 44, 191, 0.4),
-      0 0 40px rgba(123, 44, 191, 0.2);
-  }
-
-  .purple-glow:hover {
-    text-shadow: 
-      0 0 15px rgba(123, 44, 191, 0.9),
-      0 0 30px rgba(123, 44, 191, 0.6),
-      0 0 60px rgba(123, 44, 191, 0.3);
-  }
-
-  .cyan-glow {
-    text-shadow: 
-      0 0 10px rgba(0, 255, 231, 0.6),
-      0 0 20px rgba(0, 255, 231, 0.4),
-      0 0 40px rgba(0, 255, 231, 0.2);
-  }
-
-  .cyan-glow:hover {
-    text-shadow: 
-      0 0 15px rgba(0, 255, 231, 0.9),
-      0 0 30px rgba(0, 255, 231, 0.6),
-      0 0 60px rgba(0, 255, 231, 0.3);
-  }
-
-  .premium-heading {
-    background: linear-gradient(135deg, #ffffff, #d1d1d1);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-  }
-
-  .premium-heading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(0, 255, 231, 0.1));
-    border-radius: 8px;
-    filter: blur(20px);
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  /* Enhanced Project Cards */
-  .magic-project-card {
-    background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
     overflow: hidden;
   }
 
-  .magic-project-card::before {
+  .cyber-project-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 224, 0.15), transparent);
     transition: left 0.8s ease-in-out;
   }
 
-  .magic-project-card:hover::before {
+  .cyber-project-card:hover::before {
     left: 100%;
   }
 
-  .magic-project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(0, 255, 231, 0.5);
+  .cyber-project-card:hover {
+    transform: translateY(-4px);
+    border-color: #4f46e5;
     box-shadow: 
-      0 25px 50px rgba(0, 0, 0, 0.6),
-      0 0 50px rgba(0, 255, 231, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      0 0 12px #4f46e5,
+      inset 0 0 20px rgba(79, 70, 229, 0.3);
   }
 
-  /* Navigation Enhancements - replaced gold with purple/cyan */
-  .magic-nav-link {
+  /* Button System with Neon Effects */
+  .cyber-button {
+    background: linear-gradient(135deg, #a855f7, #f43f5e);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .cyber-button:hover::before {
+    transform: translateX(100%);
+  }
+
+  .cyber-button:hover {
+    box-shadow: 0 0 12px #f43f5e;
+    animation: flicker-pulse 0.3s ease-in-out;
+  }
+
+  .cyber-button:active {
+    animation: ripple-effect 0.6s ease-out;
+  }
+
+  /* Navigation with Cyber Effects */
+  .cyber-nav-link {
     position: relative;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    color: #e5e7eb;
   }
 
-  .magic-nav-link::after {
+  .cyber-nav-link::after {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #7b2cbf, #00ffe7);
+    background: linear-gradient(90deg, #a855f7, #00ffe0);
     transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  .magic-nav-link:hover::after,
-  .magic-nav-link.active::after {
+  .cyber-nav-link:hover::after,
+  .cyber-nav-link.active::after {
     width: 100%;
   }
 
-  .magic-nav-link:hover {
-    color: #7b2cbf;
-    text-shadow: 0 0 12px rgba(123, 44, 191, 0.6);
+  .cyber-nav-link:hover {
+    color: #a855f7;
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
     transform: translateY(-1px);
   }
 
-  /* Section Animations */
-  .magic-fade-in {
+  /* Section Reveal Animation */
+  .section-reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    filter: blur(4px);
+    transition: all 0.8s ease-out;
   }
 
-  .magic-fade-in.visible {
+  .section-reveal.visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 
-  /* Parallax Effects */
-  .skills-parallax {
-    transform: translateZ(0);
-    will-change: transform;
+  /* Text Color System */
+  .text-electric-purple {
+    color: #a855f7;
   }
 
-  /* Category Titles */
-  .category-title {
-    position: relative;
-    display: inline-block;
+  .text-rose-flash {
+    color: #f43f5e;
   }
 
-  .category-title::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, #7b2cbf, #00ffe7);
-    transform: translateX(-50%);
-    border-radius: 1px;
+  .text-indigo-glow {
+    color: #4f46e5;
   }
-}
 
-/* Advanced Keyframe Animations */
-@keyframes magic-glow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
+  .text-soft-white {
+    color: #e5e7eb;
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
 
-@keyframes skill-pulse {
-  0% {
-    box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 0 12px rgba(255, 255, 255, 0.08),
-      0 20px 40px rgba(0, 0, 0, 0.6);
-  }
-  50% {
-    box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      inset 0 0 20px rgba(255, 255, 255, 0.15),
-      0 25px 50px rgba(0, 0, 0, 0.7),
-      0 0 30px var(--skill-color, #7b2cbf);
-  }
-  100% {
-    box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 0 12px rgba(255, 255, 255, 0.08),
-      0 20px 40px rgba(0, 0, 0, 0.6);
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  /* Floating Animation */
+  .cyber-float {
+    animation: cyber-float 6s ease-in-out infinite;
   }
 }
 
 /* Responsive Design Enhancements */
 @media (max-width: 768px) {
-  .premium-skill-card {
+  .cyber-skill-tile {
     width: 100px;
     height: 100px;
   }
-  
-  .skill-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .purple-glow {
-    text-shadow: 
-      0 0 8px rgba(123, 44, 191, 0.5),
-      0 0 16px rgba(123, 44, 191, 0.3);
-  }
 
-  .premium-button {
-    touch-action: manipulation;
+  .animated-name {
+    font-size: clamp(2rem, 8vw, 4rem);
   }
 }
 
 @media (max-width: 480px) {
-  .premium-skill-card {
+  .cyber-skill-tile {
     width: 90px;
     height: 90px;
-  }
-  
-  .skill-icon {
-    width: 36px;
-    height: 36px;
   }
 }

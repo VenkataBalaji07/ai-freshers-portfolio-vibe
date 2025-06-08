@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,21 +48,21 @@ const SkillsSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Staggered reveal animation
+      // Section reveal animation
       gsap.fromTo(
         skillsRef.current,
         { 
           opacity: 0, 
-          y: 50,
-          scale: 0.8
+          y: 40,
+          filter: 'blur(4px)'
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
+          filter: 'blur(0)',
           duration: 0.8,
           stagger: 0.1,
-          ease: "back.out(1.7)",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 70%",
@@ -71,7 +72,7 @@ const SkillsSection = () => {
         }
       );
 
-      // Floating animation
+      // Floating animation for skill tiles
       skillsRef.current.forEach((skill, index) => {
         gsap.to(skill, {
           y: -8,
@@ -93,57 +94,78 @@ const SkillsSection = () => {
     }
   };
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0)',
+      transition: { duration: 0.8, ease: 'easeOut' }
+    }
+  };
+
   return (
-    <section ref={sectionRef} id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Enhanced gradient background with cyber colors - removed gold */}
-      <div className="absolute inset-0 bg-gradient-radial from-premium-purple/8 via-transparent to-transparent opacity-40"></div>
-      <div className="absolute inset-0 bg-gradient-conic from-premium-purple/6 via-transparent to-magic-cyan/6 animate-spin-slow opacity-20"></div>
-      
+    <motion.section 
+      ref={sectionRef} 
+      id="skills" 
+      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden cyber-background"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="magic-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 premium-heading">
+        <div className="section-reveal">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-electric-purple mb-16 animated-name">
             Skills & Technologies
           </h2>
           
           <div className="space-y-16">
             {skillCategories.map((category, categoryIndex) => (
-              <div key={category.title} className="text-center">
-                <h3 className="text-xl font-semibold text-magic-light-gray mb-8 category-title">
+              <motion.div 
+                key={category.title} 
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-semibold text-indigo-glow mb-8 relative inline-block">
                   {category.title}
+                  <span className="absolute bottom-[-4px] left-1/2 w-10 h-0.5 bg-gradient-to-r from-cyber-electric-purple to-cyber-neon-cyan transform -translate-x-1/2"></span>
                 </h3>
                 <div className="flex flex-wrap justify-center gap-8">
                   {category.skills.map((skill, index) => (
-                    <div 
+                    <motion.div 
                       key={skill.name}
                       ref={addToRefs}
-                      className="premium-skill-card group cursor-pointer"
+                      className="cyber-skill-tile w-32 h-32 flex flex-col items-center justify-center group cursor-pointer"
                       style={{ 
                         '--skill-color': skill.color,
                         '--delay': `${(categoryIndex * 0.5) + (index * 0.1)}s`
                       } as React.CSSProperties}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="skill-inner">
-                        <div className="skill-glow-ring"></div>
-                        <img 
-                          src={skill.icon} 
-                          alt={skill.name}
-                          width={48}
-                          height={48}
-                          className="skill-icon"
-                        />
-                        <span className="skill-label">
-                          {skill.name}
-                        </span>
-                      </div>
-                    </div>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        width={48}
+                        height={48}
+                        className="mb-3 transition-all duration-300 group-hover:scale-110"
+                      />
+                      <span className="text-sm font-medium text-soft-white group-hover:text-electric-purple transition-colors duration-300">
+                        {skill.name}
+                      </span>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

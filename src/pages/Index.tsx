@@ -24,17 +24,27 @@ const Index = () => {
       });
     }, observerOptions);
 
-    // Observe all sections with fade animation
-    const sections = document.querySelectorAll('.magic-fade-in');
+    // Observe all sections with reveal animation
+    const sections = document.querySelectorAll('.section-reveal');
     sections.forEach((section) => observer.observe(section));
+
+    // Custom cursor following
+    const updateCursor = (e: MouseEvent) => {
+      const cursor = document.body;
+      cursor.style.setProperty('--cursor-x', `${e.clientX}px`);
+      cursor.style.setProperty('--cursor-y', `${e.clientY}px`);
+    };
+
+    document.addEventListener('mousemove', updateCursor);
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
+      document.removeEventListener('mousemove', updateCursor);
     };
   }, []);
 
   return (
-    <div className="magic-background min-h-screen text-magic-white">
+    <div className="cyber-background min-h-screen text-cyber-soft-white">
       <Navigation />
       <HeroSection />
       <AboutSection />
