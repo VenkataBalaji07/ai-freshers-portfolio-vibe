@@ -81,7 +81,7 @@ const HeroSection = () => {
             href="https://github.com/VenkataBalaji07" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="premium-social-link"
+            className="premium-social-link group"
           >
             <Github size={24} />
           </a>
@@ -89,13 +89,13 @@ const HeroSection = () => {
             href="https://www.linkedin.com/in/venkata-balaji-boppudi-632b5b248" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="premium-social-link premium-social-linkedin"
+            className="premium-social-link premium-social-linkedin group"
           >
             <Linkedin size={24} />
           </a>
           <a 
             href="mailto:venkatabalaji00007@gmail.com"
-            className="premium-social-link premium-social-mail"
+            className="premium-social-link premium-social-mail group"
           >
             <Mail size={24} />
           </a>
@@ -103,7 +103,7 @@ const HeroSection = () => {
             href="https://x.com/Balaji420" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="premium-social-link premium-social-twitter"
+            className="premium-social-link premium-social-twitter group"
           >
             <Twitter size={24} />
           </a>
