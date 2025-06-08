@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,19 +63,26 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Enhanced Magic UI Color System
+				// Enhanced Dark Cyber Luxe Color System - removed gold
 				'magic-dark': '#0d0d0d',
 				'magic-dark-secondary': '#1a1a1a',
 				'magic-white': '#ffffff',
 				'magic-light-gray': '#d1d1d1',
 				'magic-gray': '#b0b0b0',
-				'magic-golden': '#ffd700',
 				'magic-cyan': '#00ffe7',
 				'magic-glass': 'rgba(26, 26, 26, 0.8)',
 				'magic-border': 'rgba(255, 255, 255, 0.12)',
 				'premium-purple': '#7b2cbf',
 				'premium-purple-light': '#9c4dcc',
 				'premium-purple-dark': '#5a1a7a',
+				'premium-indigo': '#4f46e5',
+				'premium-rose': '#f43f5e',
+				// Cyber color palette
+				cyber: {
+					purple: '#7b2cbf',
+					indigo: '#4f46e5',
+					rose: '#f43f5e'
+				},
 			},
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
@@ -168,7 +176,7 @@ export default {
 						boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 0 12px rgba(255, 255, 255, 0.08), 0 20px 40px rgba(0, 0, 0, 0.6)'
 					},
 					'50%': {
-						boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.15), 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px var(--skill-color, #ffd700)'
+						boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.15), 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px var(--skill-color, #7b2cbf)'
 					}
 				},
 				'shimmer': {

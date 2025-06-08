@@ -47,7 +47,7 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold text-magic-golden golden-glow transition-all duration-300">
+          <div className="text-xl font-bold text-premium-purple purple-glow transition-all duration-300">
             Portfolio
           </div>
           
@@ -56,8 +56,8 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`magic-nav-link text-magic-light-gray hover:text-magic-golden font-medium ${
-                  activeSection === item.id ? 'active text-magic-golden' : ''
+                className={`magic-nav-link text-magic-light-gray hover:text-premium-purple font-medium ${
+                  activeSection === item.id ? 'active text-premium-purple' : ''
                 }`}
               >
                 {item.label}
@@ -67,7 +67,7 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-magic-light-gray hover:text-magic-golden transition-colors">
+            <button className="text-magic-light-gray hover:text-premium-purple transition-colors">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>

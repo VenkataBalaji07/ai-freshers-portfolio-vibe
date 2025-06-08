@@ -18,7 +18,7 @@ const SkillsSection = () => {
       ]
     },
     {
-      title: "Data Science Libraries",
+      title: "Data Analysis Skills",
       skills: [
         { name: 'NumPy', icon: 'https://cdn.simpleicons.org/numpy/013243', color: '#013243' },
         { name: 'Pandas', icon: 'https://cdn.simpleicons.org/pandas/150458', color: '#150458' },
@@ -95,13 +95,13 @@ const SkillsSection = () => {
 
   return (
     <section ref={sectionRef} id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Enhanced gradient background with parallax effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-magic-golden/8 via-magic-cyan/3 to-transparent opacity-40 skills-parallax"></div>
-      <div className="absolute inset-0 bg-gradient-conic from-magic-golden/5 via-transparent to-magic-cyan/5 animate-spin-slow opacity-30"></div>
+      {/* Enhanced gradient background with cyber colors - removed gold */}
+      <div className="absolute inset-0 bg-gradient-radial from-premium-purple/8 via-transparent to-transparent opacity-40"></div>
+      <div className="absolute inset-0 bg-gradient-conic from-premium-purple/6 via-transparent to-magic-cyan/6 animate-spin-slow opacity-20"></div>
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="magic-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 golden-glow premium-heading">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-magic-white mb-16 premium-heading">
             Skills & Technologies
           </h2>
           

@@ -37,13 +37,14 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* Custom CSS properties for dynamic theming */
+  /* Custom CSS properties for dynamic theming - removed gold colors */
   :root {
     --premium-purple: #7b2cbf;
     --premium-purple-light: #9c4dcc;
     --premium-purple-dark: #5a1a7a;
-    --premium-gold: #ffd700;
     --premium-cyan: #00ffe7;
+    --premium-indigo: #4f46e5;
+    --premium-rose: #f43f5e;
     --premium-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   }
 }
@@ -78,7 +79,7 @@
 }
 
 @layer components {
-  /* Enhanced Magic UI Background System */
+  /* Enhanced Magic UI Background System - removed gold gradients */
   .magic-background {
     background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0f0f0f 100%);
     position: relative;
@@ -93,9 +94,9 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 20% 20%, rgba(123, 44, 191, 0.12) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, rgba(0, 255, 231, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(123, 44, 191, 0.06) 0%, transparent 70%);
+      radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.06) 0%, transparent 70%);
     animation: magic-glow 25s ease-in-out infinite;
     will-change: opacity;
   }
@@ -112,7 +113,7 @@
     opacity: 0.7;
   }
 
-  /* Premium Skill Cards */
+  /* Premium Skill Cards - removed gold references */
   .premium-skill-card {
     position: relative;
     width: 120px;
@@ -161,9 +162,9 @@
     right: -2px;
     bottom: -2px;
     background: linear-gradient(45deg, 
-      var(--skill-color, #ffd700), 
+      var(--skill-color, #7b2cbf), 
       transparent, 
-      var(--skill-color, #ffd700)
+      var(--skill-color, #7b2cbf)
     );
     border-radius: 18px;
     opacity: 0;
@@ -210,7 +211,7 @@
   .premium-skill-card:hover .skill-glow-ring {
     opacity: 0.8;
     filter: blur(12px);
-    box-shadow: 0 0 20px var(--skill-color, #ffd700);
+    box-shadow: 0 0 20px var(--skill-color, #7b2cbf);
   }
 
   .premium-skill-card:hover .skill-icon {
@@ -220,7 +221,7 @@
 
   .premium-skill-card:hover .skill-label {
     color: #ffffff;
-    text-shadow: 0 0 8px var(--skill-color, #ffd700);
+    text-shadow: 0 0 8px var(--skill-color, #7b2cbf);
   }
 
   /* Active State - Micro-interaction */
@@ -232,7 +233,7 @@
     animation: skill-pulse 0.6s ease-out;
   }
 
-  /* Premium Button System */
+  /* Premium Button System - removed gold colors */
   .premium-button {
     border-radius: 12px;
     background: linear-gradient(135deg, var(--premium-purple), var(--premium-purple-dark));
@@ -322,19 +323,33 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* Enhanced Glow Effects */
-  .golden-glow {
+  /* Enhanced Glow Effects - replaced gold with purple/cyan */
+  .purple-glow {
     text-shadow: 
-      0 0 10px rgba(255, 215, 0, 0.6),
-      0 0 20px rgba(255, 215, 0, 0.4),
-      0 0 40px rgba(255, 215, 0, 0.2);
+      0 0 10px rgba(123, 44, 191, 0.6),
+      0 0 20px rgba(123, 44, 191, 0.4),
+      0 0 40px rgba(123, 44, 191, 0.2);
   }
 
-  .golden-glow:hover {
+  .purple-glow:hover {
     text-shadow: 
-      0 0 15px rgba(255, 215, 0, 0.9),
-      0 0 30px rgba(255, 215, 0, 0.6),
-      0 0 60px rgba(255, 215, 0, 0.3);
+      0 0 15px rgba(123, 44, 191, 0.9),
+      0 0 30px rgba(123, 44, 191, 0.6),
+      0 0 60px rgba(123, 44, 191, 0.3);
+  }
+
+  .cyan-glow {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 231, 0.6),
+      0 0 20px rgba(0, 255, 231, 0.4),
+      0 0 40px rgba(0, 255, 231, 0.2);
+  }
+
+  .cyan-glow:hover {
+    text-shadow: 
+      0 0 15px rgba(0, 255, 231, 0.9),
+      0 0 30px rgba(0, 255, 231, 0.6),
+      0 0 60px rgba(0, 255, 231, 0.3);
   }
 
   .premium-heading {
@@ -352,7 +367,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 255, 231, 0.1));
+    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(0, 255, 231, 0.1));
     border-radius: 8px;
     filter: blur(20px);
     z-index: -1;
@@ -394,7 +409,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
-  /* Navigation Enhancements */
+  /* Navigation Enhancements - replaced gold with purple/cyan */
   .magic-nav-link {
     position: relative;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -407,7 +422,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #ffd700, #00ffe7);
+    background: linear-gradient(90deg, #7b2cbf, #00ffe7);
     transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
@@ -417,8 +432,8 @@
   }
 
   .magic-nav-link:hover {
-    color: #ffd700;
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    color: #7b2cbf;
+    text-shadow: 0 0 12px rgba(123, 44, 191, 0.6);
     transform: translateY(-1px);
   }
 
@@ -453,7 +468,7 @@
     left: 50%;
     width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, #ffd700, #00ffe7);
+    background: linear-gradient(90deg, #7b2cbf, #00ffe7);
     transform: translateX(-50%);
     border-radius: 1px;
   }
@@ -483,7 +498,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.2),
       inset 0 0 20px rgba(255, 255, 255, 0.15),
       0 25px 50px rgba(0, 0, 0, 0.7),
-      0 0 30px var(--skill-color, #ffd700);
+      0 0 30px var(--skill-color, #7b2cbf);
   }
   100% {
     box-shadow: 
@@ -514,10 +529,10 @@
     height: 40px;
   }
   
-  .golden-glow {
+  .purple-glow {
     text-shadow: 
-      0 0 8px rgba(255, 215, 0, 0.5),
-      0 0 16px rgba(255, 215, 0, 0.3);
+      0 0 8px rgba(123, 44, 191, 0.5),
+      0 0 16px rgba(123, 44, 191, 0.3);
   }
 
   .premium-button {
