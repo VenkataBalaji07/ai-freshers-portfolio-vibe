@@ -26,7 +26,7 @@ const AboutSection = () => {
     }
   ];
 
-  const skillsData = ['Machine Learning', 'Deep Learning', 'Data Analysis', 'Python Programming', 'Neural Networks'];
+  const skillsData = ['Python Programming', 'Data Analysis', 'Machine Learning', 'Deep Learning', 'Natural Language Processing', 'Gen AI'];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,8 +84,13 @@ const AboutSection = () => {
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      boxShadow: '0 0 20px rgba(168,85,247,0.4)',
+                      backgroundColor: 'rgba(168,85,247,0.3)'
+                    }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
-                    className="px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 hover:scale-105 transition-all duration-300"
+                    className="px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 cursor-pointer transition-all duration-300"
                   >
                     {skill}
                   </motion.span>
