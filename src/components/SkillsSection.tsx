@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 
 const SkillsSection = () => {
@@ -30,15 +29,6 @@ const SkillsSection = () => {
         { name: 'ML', icon: 'https://cdn.simpleicons.org/tensorflow/FF6F00' },
         { name: 'NLP', icon: 'https://cdn.simpleicons.org/spacy/09A3D5' },
         { name: 'Gen AI', icon: 'https://cdn.simpleicons.org/openai/412991' },
-      ]
-    },
-    {
-      title: "AI Tools & Platforms",
-      skills: [
-        { name: 'Agentic AI', icon: 'https://cdn.simpleicons.org/ai/000000' },
-        { name: 'Claude', icon: 'https://cdn.simpleicons.org/anthropic/000000' },
-        { name: 'ChatGPT', icon: 'https://cdn.simpleicons.org/openai/412991' },
-        { name: 'Bard', icon: 'https://cdn.simpleicons.org/google/4285F4' },
       ]
     }
   ];
