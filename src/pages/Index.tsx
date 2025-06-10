@@ -7,6 +7,8 @@ import SkillsSection from '../components/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import ThemeToggle from '../components/ThemeToggle';
+import { ThemeProvider } from '../components/ThemeProvider';
 
 const Index = () => {
   useEffect(() => {
@@ -34,15 +36,20 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="cyber-background min-h-screen text-cyber-soft-white">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#161623] text-white transition-all duration-500">
+        <div className="light:bg-gradient-to-br light:from-white light:via-gray-100 light:to-gray-200 light:text-gray-900">
+          <ThemeToggle />
+          <Navigation />
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ContactSection />
+          <Footer />
+        </div>
+      </div>
+    </ThemeProvider>
   );
 };
 

@@ -42,11 +42,10 @@ const ProjectsSection = () => {
   ];
 
   const sectionVariants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0)',
       transition: { duration: 0.8, ease: 'easeOut' }
     }
   };
@@ -54,82 +53,80 @@ const ProjectsSection = () => {
   return (
     <motion.section 
       id="projects" 
-      className="py-20 px-4 sm:px-6 lg:px-8 relative cyber-background"
+      className="py-20 px-4 sm:px-6 lg:px-8 relative"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="section-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-electric-purple mb-16 animated-name">
-            Featured Projects
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div 
-                key={project.title}
-                className="cyber-project-card rounded-lg overflow-hidden"
-                initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
-                whileInView={{ opacity: 1, y: 0, filter: 'blur(0)' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-cyber-deep-dark/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-4">
-                      <a 
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 text-soft-white hover:text-neon-cyan transition-colors"
-                      >
-                        <Github size={20} />
-                        <span>View Code</span>
-                      </a>
-                    </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-400 mb-16 hover:text-purple-300 hover:shadow-[0_0_10px_#c084fc] transition-all duration-300">
+          Featured Projects
+        </h2>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div 
+              key={project.title}
+              className="rounded-lg overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-400/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4, scale: 1.02 }}
+            >
+              <div className="relative overflow-hidden">
+                <img 
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4">
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 text-white hover:text-cyan-400 transition-colors"
+                    >
+                      <Github size={20} />
+                      <span>View Code</span>
+                    </a>
                   </div>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-purple-400 mb-3 hover:text-purple-300 transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-electric-purple mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-soft-white mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-3 py-1 bg-cyber-indigo-glow/20 text-indigo-glow text-xs rounded-full border border-cyber-indigo-glow/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <a 
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-rose-flash hover:text-neon-cyan transition-colors font-medium"
-                  >
-                    <Github size={16} />
-                    <span>View on GitHub</span>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                <a 
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-pink-400 hover:text-pink-300 transition-colors font-medium"
+                >
+                  <Github size={16} />
+                  <span>View on GitHub</span>
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>
